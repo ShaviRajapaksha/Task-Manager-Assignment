@@ -1,0 +1,43 @@
+node_modules/
+dist/
+build/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs and runtime files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.pid
+*.seed
+*.pid.lock
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# NestJS
+.nestjs/
+
+# Editors
+.idea/
+.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
