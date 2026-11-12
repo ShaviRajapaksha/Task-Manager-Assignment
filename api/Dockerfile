@@ -1,0 +1,11 @@
+FROM node:22-slim
+RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npx prisma generate && npm run build
+ENV NODE_ENV=production
+EXPOSE 3001
+# Apply migrations to the SQLite file on the mounted volume, then start the API.
+CMD ["sh", "-c", "mkdir -p /app/data && npx prisma migrate deploy && node dist/main"]
